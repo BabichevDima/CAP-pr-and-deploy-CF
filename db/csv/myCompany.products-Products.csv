@@ -1,0 +1,5 @@
+id;name;price;supplier;workSince;remains;availability;criticality
+1;milk;2;Rest market;2020-10-10;4;stock;0
+2;bread;1;Rest market;2020-10-11;5;storage;0
+3;cola;3;Rest market;2020-10-17;6;stock;0
+4;tablet;40;Rest market;2020-10-24;7;storage;0

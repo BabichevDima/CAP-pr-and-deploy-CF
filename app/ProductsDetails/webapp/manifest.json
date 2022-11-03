@@ -1,0 +1,66 @@
+{
+  "_version": "1.8.0",
+  "sap.app": {
+    "id": "products",
+    "type": "application",
+    "title": "Products Details",
+    "description": "ProductsDetails",
+    "dataSources": {
+      "mysrv": {
+        "uri": "/mysrv/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.102.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ushell": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "models": {
+      "": {
+        "dataSource": "mysrv",
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": false,
+          "earlyRequests": false,
+          "groupProperties": {
+            "default": {
+              "submit": "Auto"
+            }
+          }
+        }
+      }
+    },
+    "routing": {
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "Product",
+          "target": "Product"
+        }
+      ],
+      "targets": {
+        "Product": {
+          "type": "Component",
+          "id": "Product",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "entitySet": "ProductsSRV"
+            }
+          }
+        }
+      }
+    }
+  }
+}
